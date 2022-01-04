@@ -71,6 +71,11 @@ class _NotesPageState extends State<NotesPage> {
         children: notes.map((e) => notesTile(e.title, e.id)).toList(),
       );
 
+  Widget favoriteList() => Wrap(
+        spacing: 20,
+        children: notes.where((e)=>e.isImportant).map((e) => notesTile(e.title, e.id)).toList(),
+      );
+
   Widget notesTile(String title, int? id) => InkWell(
         borderRadius: BorderRadius.circular(15),
         child: Container(
